@@ -1,0 +1,7 @@
+{
+  "main": "compile.js",
+  "dependencies": {
+    "nodemon": "^1.11.0",
+    "pug": "^2.0.0-beta11"
+  }
+}

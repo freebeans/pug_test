@@ -1,0 +1,4 @@
+{
+ "script":"compile.js",
+ "ext":"pug,js,json"
+}

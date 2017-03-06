@@ -1,0 +1,98 @@
+doctype
+
+// Comentário HTML
+//- Comentário PUG
+
+html
+  head
+    meta(charset='utf-8')
+    title #{pagina.titulo}
+
+  body
+
+    font(face=pagina.fonte size=pagina.tamanho)
+
+      //- Nome do usuário
+      p Olá
+        if(user.formal)
+          |  #{user.pre}
+
+        b
+          |  #{user.nome}
+
+          if user.formal
+            |  #{user.sobrenome}
+
+        | .
+        | (
+        a(href='/configurar/' + user.nick)
+          | Configurar
+        | )
+
+      //- Mensagem do dia
+      p
+        if clima.chuva
+          hr
+          h2 Atenção
+          b Leve um guarda chuva hoje!
+          hr
+        else
+          | Tudo bem com você?
+
+      //- Informações
+      div(style="display: flex;")
+
+        div(style="padding: 3%; border: 3px solid #000")
+          p
+            h2 Permissões
+
+            if (user.read && user.write)
+              | Você pode ler e escrever.
+
+            else if user.read
+              | Você pode ler.
+
+            else if user.write
+              | Você pode escrever.
+
+            else
+              | Você não tem permissão nenhuma.
+
+        div(style="padding: 3%; margin-left: 3%; border: 3px solid #aaa")
+          p
+            h2 #[span(title="Os itens que você possui") Itens]
+
+            ul
+              - for (i in user.itens){
+              li #{user.itens[i]}
+              - }
+
+        div(style="padding: 3%; margin-left: 3%; border: 3px solid #ccc")
+          p
+            h2 #[span(title="Suas tarefas diárias") Tarefas]
+
+            ul
+              - for (i in user.tarefas){
+              li #{user.tarefas[i]}
+              - }
+
+        div(style="padding: 3%; margin-left: 3%; border-left: 3px solid #eee")
+          p
+            h2 #[span(title="O clima na sua região") Clima]
+
+            table(style="width: 160px")
+              th
+                tr
+                  td(style="border-bottom: 1px solid #ddd") Mínima
+                  td(style="border-bottom: 1px solid #ddd") Máxima
+
+              tb
+                tr
+                  td #{clima.temp.min} ºC
+                  td #{clima.temp.max} ºC
+
+            p
+              | #{clima.comentario}
+
+            a(href=clima.link)
+              | + Mais informações

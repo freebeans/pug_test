@@ -1,0 +1,47 @@
+{
+  "user": {
+    "pre": "Sr.",
+    "nick":"fnicoli",
+
+    "nome":"Filipe",
+    "sobrenome": "Nicoli",
+    "formal": true,
+
+    "read": true,
+    "write": true,
+
+    "itens":[
+      "Carteira",
+      "Chaves",
+      "Crachá",
+      "Garrafa",
+      "Caderno"
+    ],
+
+    "tarefas":[
+      "Beber água",
+      "Fazer exercícios"
+    ]
+
+  },
+
+  "clima": {
+
+    "link": "/weather.com",
+
+    "temp": {
+      "max": 29,
+      "min": 23
+    },
+
+    "chuva": false,
+    "comentario": "Calor ao meio dia com temperatura amena à tarde."
+
+  },
+
+  "pagina":{
+    "titulo":"Bem-vindo",
+    "fonte":"Arial",
+    "tamanho": 3
+  }
+}
